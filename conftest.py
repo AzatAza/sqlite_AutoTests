@@ -70,7 +70,7 @@ def randomazied_db():
             new_db_cursor.execute(f"UPDATE Ships SET {column_name[0]} = {column_name[0]}-{random_1_to(99999999)} "
                                   f"WHERE ROWID = {i}")
 
-        for i in range(2, columns_amount[0][0]+1):
+        for i in range(2, columns_amount[0][0] + 1):
             new_db_cursor.execute(f"SELECT name FROM pragma_table_info('Ships') WHERE ROWID = {i}")
             table_name = new_db_cursor.fetchone()
             new_db_cursor.execute(f"SELECT count() FROM {table_name[0]}s")
@@ -78,7 +78,7 @@ def randomazied_db():
             new_db_cursor.execute(f"SELECT count() FROM pragma_table_info('{table_name[0]}s')")
             columns_amount = new_db_cursor.fetchall()
 
-            for j in range(rows_amount[0][0]+1):
+            for j in range(rows_amount[0][0] + 1):
                 dice = random.randint(2, columns_amount[0][0])
                 new_db_cursor.execute(f"SELECT name FROM pragma_table_info('{table_name[0]}s') WHERE ROWID = {dice}")
                 column_name = new_db_cursor.fetchone()

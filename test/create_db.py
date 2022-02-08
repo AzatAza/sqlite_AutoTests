@@ -23,7 +23,7 @@ def create_db():
             weapon_name = f'weapon-{random.randint(1, 20)}'
             hull_name = f'hull-{random.randint(1, 5)}'
             engine_name = f'engine-{random.randint(1, 6)}'
-            cursor.execute(f"""INSERT INTO Ships(ship, weapon, hull, engine) 
+            cursor.execute("""INSERT INTO Ships(ship, weapon, hull, engine)
                VALUES(?, ?, ?, ?);""", (ship_name, weapon_name, hull_name, engine_name))
 
         num = list(range(1, 21))
@@ -35,7 +35,7 @@ def create_db():
             diameter = random.randint(1, 20)
             power_volley = random.randint(1, 20)
             count = random.randint(1, 20)
-            cursor.execute(f"""INSERT INTO Weapons(weapon, reload_speed, rotation_speed, diameter, power_volley, count) 
+            cursor.execute("""INSERT INTO Weapons(weapon, reload_speed, rotation_speed, diameter, power_volley, count)
                VALUES(?, ?, ?, ?, ?, ?);""", (weapon_name, reload_speed, rotation_speed, diameter, power_volley, count))
 
         num = list(range(1, 6))
@@ -45,7 +45,7 @@ def create_db():
             armor = random.randint(1, 20)
             type = random.randint(1, 20)
             capacity = random.randint(1, 20)
-            cursor.execute(f"""INSERT INTO Hulls(hull, armor, type, capacity) 
+            cursor.execute("""INSERT INTO Hulls(hull, armor, type, capacity)
                VALUES(?, ?, ?, ?);""", (hull_name, armor, type, capacity))
 
         num = list(range(1, 7))
@@ -54,7 +54,7 @@ def create_db():
             engine_name = f'Engine-{num[i]}'
             power = random.randint(1, 20)
             type = random.randint(1, 20)
-            cursor.execute(f"""INSERT INTO Engines(engine, power, type) 
+            cursor.execute("""INSERT INTO Engines(engine, power, type)
                VALUES(?, ?, ?);""", (engine_name, power, type))
         sqlite_connection.commit()
     except Error as error:

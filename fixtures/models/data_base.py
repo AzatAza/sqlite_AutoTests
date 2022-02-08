@@ -20,10 +20,3 @@ class TableSize:
         for j in range(2, columns_amount + 1):
             col.append(str(j))
         return TableSize(row=rows_amount, col=columns_amount)
-
-
-
-
-
-
-

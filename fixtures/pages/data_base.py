@@ -5,7 +5,7 @@ class GetDBData:
 
     @staticmethod
     def new_db_data(row, col, in_memory_session) -> str:
-        in_memory_session.execute(f"SELECT name FROM pragma_table_info('Ships') WHERE ROWID = 1")
+        in_memory_session.execute("SELECT name FROM pragma_table_info('Ships') WHERE ROWID = 1")
         ship_name = in_memory_session.fetchone()[0]
         in_memory_session.execute(f"SELECT name FROM pragma_table_info('Ships') WHERE ROWID = {col}")
         column_name = in_memory_session.fetchone()[0]
@@ -15,7 +15,7 @@ class GetDBData:
 
     @staticmethod
     def old_db_data(row, col, session):
-        session.execute(f"SELECT name FROM pragma_table_info('Ships') WHERE ROWID = 1")
+        session.execute("SELECT name FROM pragma_table_info('Ships') WHERE ROWID = 1")
         ship_name = session.fetchone()[0]
         session.execute(f"SELECT name FROM pragma_table_info('Ships') WHERE ROWID = {col}")
         column_name = session.fetchone()[0]
